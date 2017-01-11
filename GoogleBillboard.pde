@@ -8,23 +8,49 @@ public void setup()
      int b = 12;
      String digits = e.substring(a,b);
      double dNum = Double.parseDouble(digits);
+
+     String moreDigits = e.substring(1);
+     double sum = 0;
+     String number = new String();
+     double gNum = Double.parseDouble(moreDigits); // for 49
+
+
      for(int i = 0; i <= 100; i++)
      {
-       if(isPrime(dNum) == false)
-       {
+        while(isPrime(dNum) == false)
+        {
           a++;
           b++;
           digits = e.substring(a,b);
           dNum = Double.parseDouble(digits);
+        }
+     }
+     System.out.println(digits); // should give 7427466391
+
+     for (int r = 2; r <= e.length(); r++)
+     {
+       moreDigits = e.substring(r);
+       sum = sum + gNum; 
+       number = number + moreDigits;
+       System.out.println(sum);
+       if (r % 10 == 0)
+       {
+         // check if sum is 49
+         if (sum == 49) // does not get to this part, needs to be fixed. 
+         {
+           System.out.println(number);
+         }
+         sum = 0;
+         number = "";
        }
      }
-     System.out.println(digits); 
+
      noLoop();  
 }  
 public void draw()  
 {   
     // don't put any code here
-}  
+} 
 public boolean isPrime(double dNum)  
 {   
      if (dNum < 2)
